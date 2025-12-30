@@ -32,7 +32,8 @@ variable "region_name" {
 }
 
 variable "server_name" {
-  description = "Name tag for the EC2 instance"
+  description = "EC2 Server Name"
   type        = string
-  default     = "jenkins-devops-server"
 }
+
+
