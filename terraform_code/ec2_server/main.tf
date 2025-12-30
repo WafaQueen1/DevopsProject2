@@ -35,7 +35,7 @@ resource "aws_instance" "my-ec2" {
     connection {
       type        = "ssh"
       # IMPORTANT: Ensure your key file is named 'labsuser.pem' and is in this folder
-      private_key = file("./labsuser.pem") 
+      private_key = file("./key.pem") 
       user        = "ubuntu"
       host        = self.public_ip
     }
