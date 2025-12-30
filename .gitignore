@@ -1,1 +1,90 @@
+# ======================================
+# Terraform specific
+# ======================================
+.terraform/
+terraform.tfstate
+terraform.tfstate.*
+*.tfstate.backup
+*.tfvars
+override.tf
+override.tf.json
+*.override.tf
+*.override.tf.json
+
+# Terraform crash logs
+crash.log
+
+# Terraform lock file (optional – some teams commit it, most don't)
+.terraform.lock.hcl
+
+# ======================================
+# AWS / Credentials / Secrets
+# ======================================
+# Never commit any keys, credentials or tokens!
+*.pem
+*.key
+*.pem.backup
 key.pem
+labsuser.pem
+vockey.pem
+*.keypair
+*.p12
+*.pfx
+*.crt
+*.cer
+*.csr
+*.jks
+
+# AWS credentials files
+.aws/
+credentials
+config
+
+# Environment variables / secrets
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# ======================================
+# Build / Cache / Logs
+# ======================================
+# Jenkins / build artifacts
+target/
+dist/
+build/
+node_modules/
+npm-debug.log
+yarn-error.log
+*.log
+*.tmp
+*.bak
+*.swp
+.DS_Store
+Thumbs.db
+
+# Docker
+.docker/
+*.dockerignore
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Miscellaneous
+*.bak
+*.swp
+*.tmp
