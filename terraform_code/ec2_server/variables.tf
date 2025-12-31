@@ -1,9 +1,9 @@
 variable "instance_type" {
-  default = "t3.medium" # Changed to medium. Jenkins + SonarQube + Java crashes on micro.
+  default = "t3.micro" 
 }
 
 variable "ami" {
-  default = "ami-0e86e20dae9224db8" # Ensure this is valid for us-east-1
+  default = "ami-0a0e5d9c7acc336f1" # Ubuntu 22.04 LTS (Quick Start)
 }
 
 variable "key_name" {
