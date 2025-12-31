@@ -3,7 +3,7 @@ variable "instance_type" {
 }
 
 variable "ami" {
-  default = "ami-0a0e5d9c7acc336f1" # Ubuntu 22.04 LTS (Quick Start)
+  default = "ami-0c398cb65a93047f2" # Ubuntu 22.04 LTS from User Screenshot
 }
 
 variable "key_name" {
