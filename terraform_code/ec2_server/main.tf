@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     aws = {
-      source = "hashicorp/aws"
+      source  = "hashicorp/aws"
       version = "5.67.0"
     }
   }
@@ -15,20 +15,20 @@ provider "aws" {
 
 # STEP2: CREATE EC2 USING PEM & SG
 resource "aws_instance" "my-ec2" {
-  ami           = var.ami   
+  ami           = var.ami
   instance_type = var.instance_type
-  key_name      = var.key_name        
+  key_name      = "vockey"
   subnet_id     = "subnet-0b49729e2efa05bfe"
   # vpc_security_group_ids = [aws_security_group.my-sg.id]
-  iam_instance_profile   = "LabInstanceProfile"
-  
+  iam_instance_profile = "LabInstanceProfile"
+
   # root_block_device removed to use AMI defaults
-  
+
   tags = {
     Name = var.server_name
   }
-  
-    # USING REMOTE-EXEC PROVISIONER TO INSTALL PACKAGES
+
+  # USING REMOTE-EXEC PROVISIONER TO INSTALL PACKAGES
   provisioner "remote-exec" {
     # ESTABLISHING SSH CONNECTION WITH EC2
     connection {
@@ -102,7 +102,7 @@ resource "aws_instance" "my-ec2" {
       "VERSION=$(curl -L -s https://raw.githubusercontent.com/argoproj/argo-cd/stable/VERSION)",
       "curl -sSL -o argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/download/v$VERSION/argocd-linux-amd64",
       "sudo install -m 555 argocd-linux-amd64 /usr/local/bin/argocd",
-      "rm argocd-linux-amd64", 
+      "rm argocd-linux-amd64",
 
       # Install Java 17
       # Ref: https://www.rosehosting.com/blog/how-to-install-java-17-lts-on-ubuntu-20-04/
@@ -139,10 +139,10 @@ output "SERVER-SSH-ACCESS" {
 
 # STEP4: GET EC2 PUBLIC IP 
 output "PUBLIC-IP" {
-  value = "${aws_instance.my-ec2.public_ip}"
+  value = aws_instance.my-ec2.public_ip
 }
 
 # STEP5: GET EC2 PRIVATE IP 
 output "PRIVATE-IP" {
-  value = "${aws_instance.my-ec2.private_ip}"
+  value = aws_instance.my-ec2.private_ip
 }
