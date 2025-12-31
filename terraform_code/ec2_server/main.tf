@@ -20,7 +20,7 @@ resource "aws_instance" "my-ec2" {
   key_name      = var.key_name        
   subnet_id     = "subnet-0b49729e2efa05bfe"
   # vpc_security_group_ids = [aws_security_group.my-sg.id]
-  iam_instance_profile   = "arn:aws:iam::992382414402:instance-profile/LabInstanceProfile"
+  iam_instance_profile   = "LabInstanceProfile"
   
   # root_block_device removed to use AMI defaults
   
@@ -129,7 +129,8 @@ resource "aws_instance" "my-ec2" {
       "echo 'Access SonarQube Server here --> http://'$ip':9000'",
       "echo 'SonarQube Username & Password: admin'",
     ]
-  }  
+  }
+}
 
 # STEP3: GET EC2 USER NAME AND PUBLIC IP 
 output "SERVER-SSH-ACCESS" {
