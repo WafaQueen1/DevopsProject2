@@ -3,7 +3,7 @@ variable "instance_type" {
 }
 
 variable "ami" {
-  default = "ami-0c398cb65a93047f2" # Ubuntu 22.04 LTS from User Screenshot
+  default = "ami-0ecb62995f68bb549" # Ubuntu 24.04 LTS from User
 }
 
 variable "key_name" {
@@ -19,5 +19,5 @@ variable "server_name" {
 }
 
 variable "volume_size" {
-  default = 25 # Increased slightly for Docker images
+  default = 10 # Reduced to 10GB to avoid lab quotas
 }
